@@ -1,6 +1,7 @@
 print()
 
 count = input("Enter number of assignments that contribute to overall grade: ")
+print()
 
 count = int(count)
 
@@ -46,10 +47,28 @@ for k in range (count):
 print()
 
 finalGrade = finalGrade / total
+finalGrade = round(finalGrade, 2)
 
 finalGrade = str(finalGrade)
 
 print("Final Grade: " + finalGrade)
+print()
+
+if (total < 1):
+    for m in range (count):
+        testGrade = float(finalGrade)
+        if (grades[m] == 'N/A'):
+            passingGrade = input("Enter the passing grade for this class: ")
+            passingGrade = float(passingGrade)
+            temp = float(1 - weightGrade[m])
+            testGrade = testGrade * temp
+            temp = passingGrade - testGrade
+            testGrade = temp / weightGrade[m]
+            testGrade = round(testGrade, 2)
+            testGrade = str(testGrade)
+            print("Lowest grade you can get on " + assign[m] + " is: " + testGrade)
+            print()
+
 
 
 
